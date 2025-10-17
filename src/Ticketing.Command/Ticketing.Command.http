@@ -1,6 +1,12 @@
-@Ticketing.Command_HostAddress = http://localhost:5232
+@Ticketing.Command_HostAddress = http://localhost:5001
 
-GET {{Ticketing.Command_HostAddress}}/weatherforecast/
+POST {{ Ticketing.Command_HostAddress }}/api/ticket
 Accept: application/json
+Content-Type: application/json
+{
+    "username": "Jorge Medina",
+    "typeError": "ErrorSystem",
+    "detailError": "La tienda estaba cerrada"
+}
 
 ###

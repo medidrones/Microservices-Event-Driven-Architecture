@@ -1,8 +1,8 @@
 ﻿namespace Common.Core.Events;
 
-public class TicketCreateEvent : BaseEvent
+public class TicketCreatedEvent : BaseEvent
 {
-    public TicketCreateEvent() : base(nameof(TicketCreateEvent))
+    public TicketCreatedEvent() : base(nameof(TicketCreatedEvent))
     { }
 
     public required string Username { get; set; }
