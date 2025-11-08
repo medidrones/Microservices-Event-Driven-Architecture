@@ -6,6 +6,6 @@ public class TicketCreatedEvent : BaseEvent
     { }
 
     public required string Username { get; set; }
-    public string? TypeError { get; set; }
+    public int TypeError { get; set; }
     public required string DetailError { get; set; }
 }

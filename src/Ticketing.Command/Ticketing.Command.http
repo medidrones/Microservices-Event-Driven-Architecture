@@ -4,8 +4,8 @@ POST {{ Ticketing.Command_HostAddress }}/api/ticket
 Accept: application/json
 Content-Type: application/json
 {
-    "username": "Luis Suarez",
-    "typeError": "ErrorDestktop",
+    "username": "jose.perez@gmail.com",
+    "typeError": 1,
     "detailError": "El teclado no funciona"
 }
 

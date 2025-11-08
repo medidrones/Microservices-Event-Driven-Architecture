@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using System.Linq.Expressions;
 using Ticketing.Command.Application.Models;
 using Ticketing.Command.Domain.Abstracts;
 using Ticketing.Command.Domain.Common;
@@ -40,7 +41,7 @@ public class MongoRepository<TDocument> : IMongoRepository<TDocument> where TDoc
         clientSessionHandle.CommitTransactionAsync(cancellationToken);
 
     public void DisposeSession(IClientSessionHandle clientSessionHandle) => 
-        clientSessionHandle.Dispose();
+        clientSessionHandle.Dispose();    
 
     public async Task InsertOneAsync(TDocument document, IClientSessionHandle clientSessionHandle, CancellationToken cancellationToken)
     {
@@ -60,5 +61,13 @@ public class MongoRepository<TDocument> : IMongoRepository<TDocument> where TDoc
         }
 
         throw new ArgumentException("La colleccion es desconocida");
+    }
+
+    public async Task<IEnumerable<TDocument>> FilterByAsync(Expression<Func<TDocument, bool>> filterExpression, CancellationToken cancellationToken)
+    {
+        var result = await _collection.FindAsync(filterExpression, null, cancellationToken);
+        var resultList = await result.ToListAsync(cancellationToken);
+
+        return resultList.Any() ? resultList : Enumerable.Empty<TDocument>();
     }
 }
