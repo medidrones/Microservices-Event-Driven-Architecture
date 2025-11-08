@@ -4,11 +4,23 @@ using FluentValidation;
 using MediatR;
 using MongoDB.Driver;
 using Ticketing.Command.Domain.EventModels;
+using Ticketing.Command.Features.Apis;
 
 namespace Ticketing.Command.Features.Tickets;
 
-public class TicketCreate
+public sealed class TicketCreate : IMinimalApi
 {
+    public void AddEndpoint(IEndpointRouteBuilder endpointRouteBuilder)
+    {
+        endpointRouteBuilder.MapPost("/api/ticket", async (TicketCreateRequest ticketCreateRequest, IMediator mediator, CancellationToken cancellationToken) =>
+        {
+            var command = new TicketCreateCommand(ticketCreateRequest);
+            var result = await mediator.Send(command, cancellationToken);
+
+            return Results.Ok(result);
+        });
+    }
+
     public sealed class TicketCreateRequest(string username, string typeError, string detailError)
     {
         public string Username { get; } = username;
@@ -82,5 +94,5 @@ public class TicketCreate
                 return false;
             }
         }
-    }
+    }    
 }

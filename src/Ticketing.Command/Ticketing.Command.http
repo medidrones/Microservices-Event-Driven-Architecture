@@ -4,9 +4,9 @@ POST {{ Ticketing.Command_HostAddress }}/api/ticket
 Accept: application/json
 Content-Type: application/json
 {
-    "username": "Jorge Medina",
-    "typeError": "ErrorSystem",
-    "detailError": "La tienda estaba cerrada"
+    "username": "Luis Suarez",
+    "typeError": "ErrorDestktop",
+    "detailError": "El teclado no funciona"
 }
 
 ###
