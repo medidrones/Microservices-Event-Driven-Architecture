@@ -84,6 +84,19 @@ services:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+  
+  postgres:
+    image: postgres:16.0
+    container_name: postgresql
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=cleanarchitecture    
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
 
 volumes:
   mongodb_data:
@@ -93,6 +106,8 @@ volumes:
   kafka_data:
     driver: local
   zookeeper_data:
+    driver: local
+  postgres_data:
     driver: local
 
 networks:
