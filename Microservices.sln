@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketing.Command", "src\Ti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Core", "Common\Common.Core\Common.Core.csproj", "{0B3EDFBE-2C22-4ECE-9D59-D213B5608E4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketing.Query", "src\Ticketing.Query\Ticketing.Query\Ticketing.Query.csproj", "{0190D4F9-1869-4844-8BC7-E290C6D79996}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticketing.Query", "src\Ticketing.Query\Ticketing.Query.csproj", "{0190D4F9-1869-4844-8BC7-E290C6D79996}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

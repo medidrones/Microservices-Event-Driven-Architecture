@@ -27,7 +27,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Common\Common.Core\Common.Core.csproj" />
+      <ProjectReference Include="..\..\Common\Common.Core\Common.Core.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Ticketing.Query\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="Ticketing.Query\obj\Ticketing.Query.csproj.nuget.dgspec.json" />
+    </ItemGroup>   
 
 </Project>
