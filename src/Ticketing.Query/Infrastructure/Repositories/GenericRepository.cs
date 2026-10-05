@@ -6,7 +6,7 @@ namespace Ticketing.Query.Infrastructure.Repositories;
 
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
-    private readonly TicketDbContext _context;
+    protected readonly TicketDbContext _context;
 
     public GenericRepository(TicketDbContext context)
     {

@@ -1,5 +1,6 @@
 using System.Collections;
 using Ticketing.Query.Domain.Abstractions;
+using Ticketing.Query.Domain.Employees;
 using Ticketing.Query.Infrastructure.Repositories;
 
 namespace Ticketing.Query.Infrastructure.Persistence;
@@ -10,6 +11,9 @@ public class UnitOfWork : IUnitOfWork
     
     private readonly DatabaseContextFactory _contextFactory;
     private readonly TicketDbContext _context;
+    private IEmployeeRepository? _employeeRepository;
+    
+    public IEmployeeRepository EmployeeRepository => _employeeRepository ??= new EmployeeRepository(_context);
 
     public UnitOfWork(DatabaseContextFactory contextFactory)
     {
