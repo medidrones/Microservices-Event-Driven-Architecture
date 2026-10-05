@@ -10,3 +10,13 @@ Content-Type: application/json
 }
 
 ###
+
+PUT {{ Ticketing.Command_HostAddress }}/api/ticket/01958981-d0e0-76d7-b9c0-8156938f8fde
+Accept: application/json
+Content-Type: application/json
+
+{
+  "ticketType": 5,
+  "description": "El error continua, enviar el respuesto",
+  "username": "julio.gomez@gmail.com"
+}

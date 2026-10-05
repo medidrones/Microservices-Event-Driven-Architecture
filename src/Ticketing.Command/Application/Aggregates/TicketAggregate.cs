@@ -29,4 +29,26 @@ public class TicketAggregate : AggregateRoot
         _id = @event.Id;
         Active = true;
     }
+
+    public void EditTicket(int ticketType, string description, string username)
+    {
+        if(!Active)
+        {
+            throw new InvalidOperationException(
+                "No puede editar un ticket que no esta activo"
+            );
+        }
+        
+        RaiseEvent(new TicketUpdatedEvent{
+            Id = Id,
+            TicketType = ticketType,
+            Description = description,
+            Username = username,
+        });
+    }
+    
+    public void Apply(TicketUpdatedEvent @event)
+    {
+        _id = @event.Id;
+    }
 }

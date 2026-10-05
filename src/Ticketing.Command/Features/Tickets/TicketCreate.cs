@@ -72,6 +72,7 @@ public sealed class TicketCreate : IMinimalApi
         public async Task<bool> Handle(TicketCreateCommand request, CancellationToken cancellationToken)
         {
             var aggregate = new TicketAggregate(request);
+            
             await _eventSourcingHandler.SaveAsync(aggregate, cancellationToken);
 
             return true;
