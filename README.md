@@ -67,6 +67,6 @@ Si deseas aprender cómo se construyen realmente los microservicios en el mundo 
 
 ![Tech skills](Docs/EventMongoDB.jpg)
 
-![Tech skills](Docs/ERD Banco Postgresql.png)
+![Tech skills](Docs/ERD Banco Postgresql.jpg)
 
 
