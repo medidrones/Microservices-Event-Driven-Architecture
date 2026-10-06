@@ -1,3 +1,4 @@
+using Common.Core.Consumers;
 using Confluent.Kafka;
 using Microsoft.EntityFrameworkCore;
 using Ticketing.Query.Domain.Abstractions;
@@ -34,10 +35,11 @@ public static class InfrastructureServiceRegistration
         services.AddSingleton<DatabaseContextFactory>(new DatabaseContextFactory(configureDbContext));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-        services.Configure<ConsumerConfig>(configuration.GetSection(nameof(ConsumerConfig)));
         services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+        services.AddScoped<IEventConsumer, EventConsumer>();
         services.AddHostedService<ConsumerHostedService>();
         services.AddScoped<IEventHandler, Handlers.EventHandler>();
+        services.Configure<ConsumerConfig>(configuration.GetSection(nameof(ConsumerConfig)));
         
         return services;
     }

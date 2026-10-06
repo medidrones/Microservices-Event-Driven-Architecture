@@ -4,7 +4,7 @@ using Ticketing.Query.Domain.Employees;
 using Ticketing.Query.Domain.Tickets;
 using Ticketing.Query.Domain.TicketTypes;
 
-namespace Ticketing.Query.Features.Tickets;
+namespace Ticketing.Query.Features.Tickets.Commands;
 
 public sealed class TicketCreate
 {

@@ -1,8 +1,7 @@
 using Common.Core.Events;
 using MediatR;
 using Ticketing.Query.Domain.Abstractions;
-using Ticketing.Query.Features.Tickets;
-
+using Ticketing.Query.Features.Tickets.Commands;
 
 namespace Ticketing.Query.Infrastructure.Handlers;
 
@@ -27,8 +26,15 @@ public class EventHandler : IEventHandler
         await _mediator.Send(command);
     }
 
-    public Task On(TicketUpdatedEvent @event)
+    public async Task On(TicketUpdatedEvent @event)
     {
-        throw new NotImplementedException();
+        var ticketUpdateCommand = new TicketUpdate.TicketUpdateCommand(
+            @event.Id,
+            @event.TicketType,
+            @event.Description!,
+            @event.Username!
+        );
+        
+        await _mediator.Send(ticketUpdateCommand);
     }
 }
